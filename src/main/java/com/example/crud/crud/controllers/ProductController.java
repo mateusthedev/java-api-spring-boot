@@ -36,11 +36,13 @@ public class ProductController {
     @Transactional //Usamos para que ele execute a função PUT na ordem correta.
     public ResponseEntity updateProduct(@RequestBody @Valid RequestProduct data){
         try {
+            //Precisamos passar como Optional primeiro para identificar se não há Ids inválidas e setamos o id
             Optional<Product> optionalProduct = repository.findById(data.id());
+            //Depois usamos o método do construtor e selecinamos que será alterado pela id.
             Product product = optionalProduct.get();
             product.setName(data.name());
             product.setPrice_in_cents(data.price_in_cents());
-            return ResponseEntity.ok(product);
+            return ResponseEntity.ok().body("Sucesso");
         }catch (Exception a){
             return ResponseEntity.badRequest().body("Erro");
         }
