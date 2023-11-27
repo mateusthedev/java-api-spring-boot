@@ -18,13 +18,15 @@ import java.util.UUID;
 @EqualsAndHashCode(of = "id") //Biblioteca Lombok definimos a primary key do banco.
 
 public class Product {
-
-    @Id @GeneratedValue(strategy = GenerationType.UUID) //Dizemos como as novas instancias serão geradas nesse caso uuid para id.
+    //Dizemos como as novas instancias serão geradas nesse caso uuid para id.
+    @Id @GeneratedValue(strategy = GenerationType.UUID)
 
     private String id;
     private String name;
     private Integer price_in_cents;
 
+    //funciona como um setter pegando o valor pelo método construtor "RequestProduct"
+    // e passando o valor para os atributos.
     public Product(RequestProduct requestProduct){
         this.name = requestProduct.name();
         this.price_in_cents = requestProduct.price_in_cents();
