@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.util.BitSet;
 import java.util.UUID;
 
 //Domain são representação das tabelas no banco de dados.
@@ -25,11 +26,17 @@ public class Product {
     private String name;
     private Integer price_in_cents;
 
+    private Integer stock;
+
+    private Integer situation;
+
     //Setter que pega o valor pelo método construtor "RequestProduct"
     // e passa o valor para os atributos.
     public Product(RequestProduct requestProduct){
         this.name = requestProduct.name();
         this.price_in_cents = requestProduct.price_in_cents();
+        this.stock = requestProduct.stock();
+        this.situation = requestProduct.situation();
     }
 
 }

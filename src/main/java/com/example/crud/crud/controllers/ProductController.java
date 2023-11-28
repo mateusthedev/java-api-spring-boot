@@ -48,4 +48,10 @@ public class ProductController {
         }
 
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteProduct(@PathVariable String id){
+        repository.deleteById(id);
+        return ResponseEntity.ok("OK");
+    }
 }
