@@ -1,2 +1,2 @@
-ALTER TABLE product ADD situation INT NOT NULL DEFAULT 1;
-UPDATE product SET situation = 1;
+ALTER TABLE product ADD situation BOOLEAN NOT NULL;
+UPDATE product SET situation = TRUE;

@@ -7,13 +7,10 @@ import jakarta.validation.constraints.NotNull;
 //Basicamento server para salvar e enviar os valores do atributo para outras classe.
 public record RequestProduct(
         String id,
-        @NotBlank
         String name,
-        @NotNull
         Integer price_in_cents,
-        @NotNull
         Integer stock,
-        Integer situation
+        Boolean situation
         ){
 
 }

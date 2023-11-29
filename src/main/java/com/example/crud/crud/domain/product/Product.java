@@ -28,7 +28,7 @@ public class Product {
 
     private Integer stock;
 
-    private Integer situation;
+    private Boolean situation;
 
     //Setter que pega o valor pelo método construtor "RequestProduct"
     // e passa o valor para os atributos.
@@ -36,7 +36,7 @@ public class Product {
         this.name = requestProduct.name();
         this.price_in_cents = requestProduct.price_in_cents();
         this.stock = requestProduct.stock();
-        this.situation = requestProduct.situation();
+        this.situation = true;
     }
 
 }
