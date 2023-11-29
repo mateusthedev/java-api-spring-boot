@@ -61,7 +61,7 @@ public class ProductController {
 
             return ResponseEntity.ok("Sucesso");
         } catch (Exception a){
-            return ResponseEntity.ok("Erro");
+            return ResponseEntity.ok("Erro!");
         }
 
     }
