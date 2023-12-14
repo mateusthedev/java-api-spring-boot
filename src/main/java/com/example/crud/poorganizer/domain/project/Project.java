@@ -1,12 +1,7 @@
-package com.example.crud.crud.domain.product;
+package com.example.crud.poorganizer.domain.project;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
-
-import java.util.BitSet;
-import java.util.UUID;
 
 //Domain são representação das tabelas no banco de dados.
 
@@ -18,25 +13,22 @@ import java.util.UUID;
 @NoArgsConstructor // "Biblioteca Lombok" - Diz que não receberemos nenhum argumento passado pelo contrutor para nosso objeto.
 @EqualsAndHashCode(of = "id") //Biblioteca Lombok definimos a primary key do banco.
 
-public class Product {
+public class Project {
     //Dizemos como as novas instancias serão geradas nesse caso uuid para id.
     @Id @GeneratedValue(strategy = GenerationType.UUID)
 
     private String id;
     private String name;
-    private Integer price_in_cents;
 
-    private Integer stock;
+    private String creatorUserId;
 
-    private Boolean situation;
+    private Integer situation;
 
     //Setter que pega o valor pelo método construtor "RequestProduct"
     // e passa o valor para os atributos.
-    public Product(RequestProduct requestProduct){
-        this.name = requestProduct.name();
-        this.price_in_cents = requestProduct.price_in_cents();
-        this.stock = requestProduct.stock();
-        this.situation = true;
+    public Project(RequestProject requestProject){
+        this.name = requestProject.name();
+        this.creatorUserId = requestProject.creatorUserId();
+        this.situation = requestProject.situation();
     }
-
 }
