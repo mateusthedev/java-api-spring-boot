@@ -21,6 +21,7 @@ CREATE TABLE usersProjects (
     id VARCHAR(36) PRIMARY KEY NOT NULL,
     userId VARCHAR(36),
     projectId VARCHAR(36),
+    permission INT NOT NULL,
     FOREIGN KEY (userId) REFERENCES users(id),
     FOREIGN KEY (projectId) REFERENCES projects(id)
 );

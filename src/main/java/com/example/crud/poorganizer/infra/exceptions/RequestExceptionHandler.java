@@ -1,4 +1,4 @@
-package com.example.crud.poorganizer.infra;
+package com.example.crud.poorganizer.infra.exceptions;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;

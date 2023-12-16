@@ -3,7 +3,7 @@ package com.example.crud.poorganizer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication //Local onde a aplicação é estartada.
+@SpringBootApplication
 public class PoApplication {
 
 	public static void main(String[] args) {

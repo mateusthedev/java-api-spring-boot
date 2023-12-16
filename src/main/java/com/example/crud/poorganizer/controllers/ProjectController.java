@@ -1,7 +1,7 @@
 package com.example.crud.poorganizer.controllers;
 
 import com.example.crud.poorganizer.domain.project.Project;
-import com.example.crud.poorganizer.domain.project.ProjectRepository;
+import com.example.crud.poorganizer.repositories.ProjectRepository;
 import com.example.crud.poorganizer.domain.project.RequestProject;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@RestController //Nomeamos essa classe como um controller
-@RequestMapping("/project") //Dizemos que todas as requests /product serão para esse controller
+@RestController
+@RequestMapping("/project")
 
 public class ProjectController {
-    @Autowired //Direciona as ações feitas em .domain.ProductRepository para essa classe.
+    @Autowired
     private ProjectRepository repository;
 
-    @GetMapping// Recebe requisições GET
+    @GetMapping
     public ResponseEntity getAllProjects(){
         var allProjects = repository.findAllBySituationTrue();
         return ResponseEntity.ok(allProjects);
@@ -32,15 +32,15 @@ public class ProjectController {
         return ResponseEntity.ok(projects);
     }
 
-    @PostMapping//Recebe as requisições POST
-    public ResponseEntity createProject(@RequestBody @Valid RequestProject data){ //Recebe os valores dos atributos do Record Requestproduct em "data"
+    @PostMapping
+    public ResponseEntity createProject(@RequestBody @Valid RequestProject data){
         Project newProject = new Project(data);
         repository.save(newProject);
-        return ResponseEntity.ok().build();//usamos build para finalizar o método. Sinalizando que está completo.
+        return ResponseEntity.ok().build();
     }
 
-    @PutMapping//Recebe a requisição PUT
-    @Transactional //Usamos para que ele execute a função PUT na ordem correta.
+    @PutMapping
+    @Transactional
     public ResponseEntity updateProduct(@RequestBody @Valid RequestProject data){
         try {
             //Precisamos passar como Optional primeiro para identificar se não há Ids inválidas e setamos o id
